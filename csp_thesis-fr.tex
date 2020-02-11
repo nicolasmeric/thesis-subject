@@ -15,41 +15,50 @@
 
 \subsection*{Titre~:}
 \begin{center}
-\large Verification et Simulation des Comportements pour la Sureté \\ de Fonctionnement des Systemes Critiques
+\large Vérification et Simulation des Comportements pour la Sûreté \\ de Fonctionnement des Systèmes Critiques
 \end{center}
 
 \subsection*{Sujet~:}
-Les systèmes autonomes ont la particularité d'être soumis, en plus des défaillance a 
-physiques classiques, a des erreurs relevant d'interaction avec l'environnement ou de
-traitement de données (par example, l'éblouissement ou une reconnaissance de forme 
-erroné).  
+Les systèmes autonomes ont la particularité d'être soumis,
+en plus des défaillances physiques classiques,
+à des erreurs relevant d'interactions avec l'environnement
+ou de traitement de données
+(par exemple, l'éblouissement ou une reconnaissance de forme erronée).  
 
-Conséquemment, on s'intéresse a des \emph{modèles de comportement}
-des systèmes embarqués dans des environnements hostiles et difficiles à modéliser
-dans lesquels le système est censé assurer des propriété de sécurite en presence des
-données erronées ou imprécises. La norme ISO SOTIF introduit une classification 
-de scenarios nommés \emph{known safe}, \emph{known unsafe} \emph{unknown unsafe} et
+Conséquemment, on s'intéresse à des \emph{modèles de comportement}
+des systèmes embarqués dans des environnements hostiles
+et difficiles à modéliser
+dans lesquels le système est censé assurer des propriétés de sécurité
+en présence de données erronées ou imprécises.
+La norme ISO SOTIF introduit une classification de scenarios
+nommés \emph{known safe}, \emph{known unsafe} \emph{unknown unsafe} et
 \emph{unknown safe}. 
 
 
-L'objectif de cette thèse est de trouver des modèles comportementaux qui sont suffisamment
-flexible et \emph{open world} pour addresser des scenarios  \emph{known unsafe} et \emph{unknown unsafe}. 
+L'objectif de cette thèse est de trouver des modèles comportementaux
+qui sont suffisamment flexibles et \emph{open world}
+pour addresser des scénarios \emph{known unsafe} et \emph{unknown unsafe}. 
 
 The theory of CSP was first described in 1978 in a book by Tony Hoare \cite{Hoare:1985:CSP:3921}, 
 but has since evolved substantially \cite{BrookesHR84,brookes-roscoe85,roscoe:csp:1998}.
 CSP describes the most common communication and synchronization mechanisms
 with one single language primitive: synchronous communication . 
-CSP semantics is described by a fully abstract model of behaviour designed to be \emph{compositional}
-Isabelle/HOL-CSP\cite{XXX} est une théorie generale de comportement represente dans le systeme de modelisation et preuve
-Isabelle/HOL\cite{XXX}. Isabelle/HOL-CSP permet d'exprimer
+CSP semantics is described by a fully abstract model of behaviour designed to be \emph{compositional}.
+Isabelle/HOL-CSP\cite{XXX} est une théorie générale de comportement
+représentée dans le système de modélisation et preuve Isabelle/HOL\cite{XXX}. Isabelle/HOL-CSP permet d'exprimer :
 \begin{itemize}
-\item  des non-determinisme non-borné (ce qui correspond au \emph{known unsafe}) 
-\item des classement des evenements ``open-world'' (ce qui correspond au \emph{known unsafe})
-\item des patrons de processus (ce qui correspond au \emph{known unsafe}) 
+\item
+  des non-déterminismes non-bornés
+  (ce qui correspond au \emph{known unsafe}) ; 
+\item
+  des classements des événements \emph{open-world}
+  (ce qui correspond au \emph{known unsafe}) ;
+\item
+  des patrons de processus (ce qui correspond au \emph{known unsafe}).
 \end{itemize}
-dans le cadre du système Isabelle/HOL permettant modelisation, simulation et preuve.
-En particulier, il permet de prouver des raffinements et la correction des abstractions des
-processus relevant pour des simulations.
+dans le cadre du système Isabelle/HOL permettant
+modélisation, simulation et preuve.
+En particulier, il permet de prouver des raffinements et la correction des abstractions des processus pertinent pour des simulations.
 
 , les problemes de surete de comportement
 peuvent etre exprime par la notion de raffinement de processus.
