@@ -1,0 +1,104 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url,french}
+
+\sloppy
+
+\begin{document}
+
+\title{\textbf{LRI}}
+\author{Safouan Taha and Burkhart Wolff}
+\date{}
+
+\maketitle
+
+\subsection*{Titre~:}
+\begin{center}
+\large Verification et Simulation des Comportements pour la Sureté \\ de Fonctionnement des Systemes Critiques
+\end{center}
+
+\subsection*{Sujet~:}
+Les systèmes autonomes ont la particularité d'être soumis, en plus des défaillance a 
+physiques classiques, a des erreurs relevant d'interaction avec l'environnement ou de
+traitement de données (par example, l'éblouissement ou une reconnaissance de forme 
+erroné).  
+
+Conséquemment, on s'intéresse a des \emph{modèles de comportement}
+des systèmes embarqués dans des environnements hostiles et difficiles à modéliser
+dans lesquels le système est censé assurer des propriété de sécurite en presence des
+données erronées ou imprécises. La norme ISO SOTIF introduit une classification 
+de scenarios nommés \emph{known safe}, \emph{known unsafe} \emph{unknown unsafe} et
+\emph{unknown safe}. 
+
+
+L'objectif de cette thèse est de trouver des modèles comportementaux qui sont suffisamment
+flexible et \emph{open world} pour addresser des scenarios  \emph{known unsafe} et \emph{unknown unsafe}. 
+
+The theory of CSP was first described in 1978 in a book by Tony Hoare \cite{Hoare:1985:CSP:3921}, 
+but has since evolved substantially \cite{BrookesHR84,brookes-roscoe85,roscoe:csp:1998}.
+CSP describes the most common communication and synchronization mechanisms
+with one single language primitive: synchronous communication . 
+CSP semantics is described by a fully abstract model of behaviour designed to be \emph{compositional}
+Isabelle/HOL-CSP\cite{XXX} est une théorie generale de comportement represente dans le systeme de modelisation et preuve
+Isabelle/HOL\cite{XXX}. Isabelle/HOL-CSP permet d'exprimer
+\begin{itemize}
+\item  des non-determinisme non-borné (ce qui correspond au \emph{known unsafe}) 
+\item des classement des evenements ``open-world'' (ce qui correspond au \emph{known unsafe})
+\item des patrons de processus (ce qui correspond au \emph{known unsafe}) 
+\end{itemize}
+dans le cadre du système Isabelle/HOL permettant modelisation, simulation et preuve.
+En particulier, il permet de prouver des raffinements et la correction des abstractions des
+processus relevant pour des simulations.
+
+, les problemes de surete de comportement
+peuvent etre exprime par la notion de raffinement de processus.
+-- Raffinement plus ?
+-- Simulation plus ?
+-- connection a des systemes ingenieurs Altarica
+
+%La g\'{e}n\'{e}ration d'invariants est une technique clef pour l'analyse des langages
+%imp\'{e}ratifs, que ce soit pour l'analyse statique ou la
+%g\'{e}n\'{e}ration de tests \`{a} partir du programme (o\`{u} elle est un pr\'{e}-requis \`{a}
+%l'\'{e}limination de chemins infaisables) ou pour de la v\'{e}rification d\'{e}ductive
+%classique (pour laquelle m\^{e}me une construction automatis\'{e}e partielle
+%d'invariants peut faciliter de fa\c{c}on substantielle la t\^{a}che globale de preuve).
+%Dans les langages synchrones comme Lustre ou Scade (utilis\'{e}s \`{a} l'\'{e}chelle
+%industrielle dans le ferroviaire et l'avionique), ces
+%techniques sont cruciales pour une d\'{e}composition des programmes qui permet
+%le passage \`{a} l'\'{e}chelle d'autres techniques d'analyse statique.
+%
+%L'objectif de cette th\`{e}se est de d\'{e}velopper, pour un mod\`{e}le de langage
+%imp\'{e}ratif, typ\'{e} et bas\'{e} sur les monades (semblable \`{a} celui pr\'{e}sent\'{e} dans
+%\cite{DBLP:conf/pldi/GreenawayLAK14}), un ensemble de tactiques en
+%Isabelle/HOL pour construire des invariants qui serviront d'entr\'{e}e
+%\`{a} d'autres techniques d'analyse statique de programmes.
+%\`{A} partir d'une combinaison d'ex\'{e}cution symbolique, de recherche (heuristique)
+%d'abstraction de pr\'{e}dicats, de technologies de parall\'{e}lisation et
+%preuve SMT,
+%de nouvelles formes de g\'{e}n\'{e}ration d'invariants seront explor\'{e}es et impl\'{e}ment\'{e}es.
+%Dans le cas des langages synchrones, des avanc\'{e}es ont \'{e}t\'{e} obtenues r\'{e}cemment
+%gr\^{a}ce \`{a} l'outil SMT Kind2 \cite{kind2, kind2Web} de v\'{e}rification pour Lustre
+%et son successeur JKind \cite{jkind, jkindWeb} qui utilise des g\'{e}n\'{e}rateurs
+%d'invariants bas\'{e}s sur des heuristiques \cite{inv1, inv2} reli\'{e}es entre eux
+%par du code d\'{e}di\'{e}, ainsi que des d\'{e}monstrateurs g\'{e}n\'{e}raux
+%(Kind and PDR \cite{eng}). M\^{e}me si le fondement th\'{e}orique de ces outils est
+%parfois probl\'{e}matique, ce type de syst\`{e}mes a montr\'{e} l'int\'{e}r\^{e}t pratique de cette
+%approche. 
+%L'accent est mis en particulier sur les invariants qui \'{e}tablissent la faisabilit\'{e}
+%des chemins
+%d'ex\'{e}cution dans le code plut\^{o}t qu'une preuve compl\`{e}te de la
+%correction partielle du code. Ceci suffit pour de nombreuses
+%techniques d'analyse statique de programmes ainsi que pour les m\'{e}thodes
+%de g\'{e}n\'{e}ration de test structurel al\'{e}atoire \cite{aissat:hal-01655414,aissat:hal-01632902}.
+%
+
+\subsection*{Objectifs~:}
+
+\subsection*{Plan de Travail~:}
+
+
+\bibliographystyle{unsrt}
+\bibliography{biblio}
+
+\end{document}
