@@ -7,7 +7,7 @@
 
 \begin{document}
 
-\title{\textbf{LRI}}
+\title{\textbf{Proposition de These Paris-Saclay/LRI}}
 \author{Safouan Taha and Burkhart Wolff}
 \date{}
 
@@ -15,7 +15,7 @@
 
 \subsection*{Titre~:}
 \begin{center}
-\large Vérification et Simulation des Comportements pour la Sûreté \\ de Fonctionnement des Systèmes Critiques
+\large Vérification et Simulation des Comportements pour la Sûreté \\ de Fonctionnement des Systèmes Autonomes Critiques
 \end{center}
 
 \subsection*{Sujet~:}
@@ -39,32 +39,40 @@ L'objectif de cette thèse est de trouver des modèles comportementaux
 qui sont suffisamment flexibles et \emph{open world}
 pour addresser des scénarios \emph{known unsafe} et \emph{unknown unsafe}. 
 
-The theory of CSP was first described in 1978 in a book by Tony Hoare \cite{Hoare:1985:CSP:3921}, 
-but has since evolved substantially \cite{BrookesHR84,brookes-roscoe85,roscoe:csp:1998}.
-CSP describes the most common communication and synchronization mechanisms
-with one single language primitive: synchronous communication . 
-CSP semantics is described by a fully abstract model of behaviour designed to be \emph{compositional}.
-Isabelle/HOL-CSP\cite{XXX} est une théorie générale de comportement
-représentée dans le système de modélisation et preuve Isabelle/HOL\cite{XXX}. Isabelle/HOL-CSP permet d'exprimer :
+Une théorie de reference pour étudier les modèles comportementaux est
+\emph{concurrent sequential processes} (CSP) qui a été introduit dans un livre en 1978 
+par Tony Hoare \cite{Hoare:1985:CSP:3921}, et qui a évolué de manière substantielle
+entretemps \cite{BrookesHR84,brookes-roscoe85,roscoe:csp:1998}.
+CSP decrit non-déterminisme, communication and synchronisation avec un ensemble
+minimal des opérateurs et un ensemble des règles qui représentent en meme temps 
+un cadre d'étude théorique, un language de modélisation de comportement, et un framework
+de vérification et simulation via un presentations des processus par des automates. 
+Par contre, CSP processes sont décrit dans un modèle \emph{fully abstract} et sont conçu d'être \emph{compositionel}. 
+Isabelle/HOL-CSP\cite{HOL-CSP-AFP} est une théorie générale de CSP générale
+représentée dans le système de modélisation et preuve Isabelle/HOL\cite{nipkow.ea:isabelle:2002}. 
+Isabelle/HOL-CSP permet d'exprimer :
 \begin{itemize}
 \item
   des non-déterminismes non-bornés
   (ce qui correspond au \emph{known unsafe}) ; 
 \item
   des classements des événements \emph{open-world}
-  (ce qui correspond au \emph{known unsafe}) ;
+  (ce qui correspond au \emph{unknown unsafe}) ;
 \item
   des patrons de processus (ce qui correspond au \emph{known unsafe}).
 \end{itemize}
-dans le cadre du système Isabelle/HOL permettant
+dans le cadre d'un système  permettant
 modélisation, simulation et preuve.
-En particulier, il permet de prouver des raffinements et la correction des abstractions des processus pertinent pour des simulations.
+En particulier, il permet de prouver des propriétés sur des patrons des environnements
+avec une grande variabilité, des moyens de prouver des relations entre environnements
+via raffinement, et la correction correction des abstractions des processus (construit a partir des 
+ontologies de domaine)  pertinent pour des simulations.
 
-, les problemes de surete de comportement
-peuvent etre exprime par la notion de raffinement de processus.
--- Raffinement plus ?
--- Simulation plus ?
--- connection a des systemes ingenieurs Altarica
+%, les problemes de surete de comportement
+%peuvent etre exprime par la notion de raffinement de processus.
+%-- Raffinement plus ?
+%-- Simulation plus ?
+%-- connection a des systemes ingenieurs Altarica
 
 %La g\'{e}n\'{e}ration d'invariants est une technique clef pour l'analyse des langages
 %imp\'{e}ratifs, que ce soit pour l'analyse statique ou la
@@ -103,9 +111,31 @@ peuvent etre exprime par la notion de raffinement de processus.
 %
 
 \subsection*{Objectifs~:}
+\begin{itemize}
+\item Etude des modèles  des patrons ``ouverts''  d'environnement 
+         appropriés dans la domaine des Automobiles Autonomes, ensemble avec 
+         des système de contrôle des Automobiles Autonomes
+\item Construction d'un environnement de simulation et verification a base des
+         processus CSP pour la domaine  des Automobiles Autonomes
+\item Construction d'un environnement d'abstractions correctes des comportements
+         pour la simulation
+\item Integration de l'environnement dans le système d'ingenieurie AltaRica ou similaire
+\end{itemize}
 
 \subsection*{Plan de Travail~:}
+\begin{itemize}
+\item Modélisation des patrons ``ouverts''  d'environnement des Automobiles Autonomes 
+\item Modélisation des patrons ``ouverts'' des système de contrôle des Automobiles Autonomes 
+\item Développement d'un système de conversion des processus CSP en Automates
+\item Développement d'un système de simulation des processus CSP et leur
+         intégration dans le systeme similaire AltaRica 
+\item Développement du support d'abstraction des processus a base des ontologies de domaine.
+\end{itemize}
 
+\subsection*{Cadre organisatoire~:}
+Encadrement dans le laboratoire de recherche en informatique (LRI) dans l'equipe VALS.
+Directeur Prof. B. Wolff (habil), Co-encadrement: Dr. Sajouan Taha.
+Financement de Thèse: SystemX suivant la convention. 
 
 \bibliographystyle{unsrt}
 \bibliography{biblio}
