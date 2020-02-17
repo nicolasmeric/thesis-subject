@@ -7,15 +7,16 @@
 
 \begin{document}
 
-\title{\textbf{Proposition de These Paris-Saclay/LRI}}
-\author{Safouan Taha and Burkhart Wolff}
+\title{\textbf{Proposition de Thèse Paris-Saclay/LRI}}
+\author{Safouan Taha et Burkhart Wolff}
 \date{}
 
 \maketitle
 
 \subsection*{Titre~:}
 \begin{center}
-\large Vérification et Simulation des Comportements pour la Sûreté \\ de Fonctionnement des Systèmes Autonomes Critiques
+\large Vérification et Simulation des Comportements pour la Sûreté \\
+  de Fonctionnement des Systèmes Autonomes Critiques
 \end{center}
 
 \subsection*{Sujet~:}
@@ -25,113 +26,105 @@ en plus des défaillances physiques classiques,
 ou du traitement des données
 (par exemple, l'éblouissement ou une mauvaise reconnaissance de forme).
 
-Dans de tels environnements hostiles et difficiles à modéliser, on s'intéresse à des \emph{modèles de comportement} dans lesquels le système est censé assurer des propriétés de sécurité
+Dans de tels environnements hostiles et difficiles à modéliser,
+on s'intéresse à des \emph{modèles de comportement}
+dans lesquels le système est censé assurer des propriétés de sécurité
 malgré la présence de données erronées ou imprécises.
-La norme ISO SOTIF introduit une classification de scénarios
-en \emph{known safe}, \emph{known unsafe}, \emph{unknown unsafe} \ldots, selon si le scénario est connu lors de la conception du système ou bien découvert lors de la phase de test et si ce scenario ne déstabilise pas le système ou bien provoque sa défaillance.
+La norme ISO SOTIF \cite{iso-2019-sotif} introduit
+une classification de scénarios en plusieurs catégories,
+\emph{known safe}, \emph{known unsafe}, \emph{unknown safe}
+et \emph{unknown unsafe}, selon que le scénario est connu
+lors de la conception du système ou bien découvert lors de la phase de test
+et selon que le scénario ne déstabilise pas le système
+ou bien provoque sa défaillance.
 
 L'objectif de cette thèse est de trouver des modèles comportementaux
-qui sont suffisamment flexibles et \emph{open world}
-pour résister à des scénarios \emph{known unsafe} et \emph{unknown unsafe}.
+qui sont suffisamment flexibles et \emph{open world} pour prendre en compte
+des scénarios \emph{known unsafe} et \emph{unknown unsafe}.
 
 Une théorie de référence pour étudier les modèles comportementaux est
-\emph{Concurrent Sequential Processes} (CSP) qui a été introduite dans un livre en 1978
-par Tony Hoare \cite{Hoare:1985:CSP:3921}, et qui a évolué de manière substantielle
+\emph{Concurrent Sequential Processes} (CSP)
+qui a été introduite dans un livre en 1978
+par Tony Hoare \cite{Hoare:1985:CSP:3921},
+et qui a évolué de manière substantielle
 entre-temps \cite{BrookesHR84,brookes-roscoe85,roscoe:csp:1998}.
-CSP décrit le non-déterminisme, la communication et la synchronisation avec un ensemble
-minimal d'opérateurs et un ensemble des règles. CSP offre à la fois
-un cadre d'étude théorique, un langage de modélisation de comportement, et un framework
-de vérification et simulation via une implémentation des processus par des automates.
-Les processus CSP sont ainsi décrit dans un modèle abstrait avec une grande \emph{expressivité} et conçu pour être \emph{compositionnels}.
+CSP décrit le non-déterminisme, la communication
+et la synchronisation avec un ensemble minimal d'opérateurs
+et un ensemble des règles.
+CSP offre à la fois un cadre d'étude théorique,
+un langage de modélisation de comportement,
+et un framework de vérification et simulation
+via une implémentation des processus par des automates.
+Les processus CSP sont ainsi décrits dans un modèle abstrait
+avec une grande \emph{expressivité} et conçu pour être \emph{compositionnels}.
 
-Isabelle/HOL-CSP\cite{HOL-CSP-AFP} est une théorie générale de CSP
-implémentée dans l'environnement de modélisation et de preuve Isabelle/HOL\cite{nipkow.ea:isabelle:2002}.
+Isabelle/HOL-CSP \cite{HOL-CSP-AFP} est une théorie générale de CSP
+implémentée dans l'environnement de modélisation et de preuve
+Isabelle/HOL \cite{nipkow.ea:isabelle:2002}.
 Isabelle/HOL-CSP permet entre autres d'exprimer :
+%
 \begin{itemize}
-\item
-  des non-déterminismes non-bornés
-  (ce qui correspond au \emph{known unsafe}) ; 
-\item
-  une hiérarchisation des événements \emph{open-world}
-  (ce qui correspond au \emph{unknown unsafe}) ;
-\item
-  des patrons de processus (ce qui correspond au \emph{known unsafe}) \ldots
+  \item
+    des non-déterminismes non-bornés
+    (ce qui correspond aux scénarios \emph{known unsafe}) ;
+  \item
+    une hiérarchisation des événements \emph{open-world}
+    (ce qui correspond aux scénarios \emph{unknown unsafe}) ;
+  \item
+    des patrons de processus (ce qui correspond au \emph{known unsafe})\ldots
 \end{itemize}
+%
 dans un cadre permettant modélisation, simulation et preuve.
-En particulier, il permet de prouver de manière incrémentale des propriétés sur des d'environnements
-avec une grande variabilité et de vérifier la correction des processus par raffinement.
-
-%, les problemes de surete de comportement
-%peuvent etre exprime par la notion de raffinement de processus.
-%-- Raffinement plus ?
-%-- Simulation plus ?
-%-- connection a des systemes ingenieurs Altarica
-
-%La g\'{e}n\'{e}ration d'invariants est une technique clef pour l'analyse des langages
-%imp\'{e}ratifs, que ce soit pour l'analyse statique ou la
-%g\'{e}n\'{e}ration de tests \`{a} partir du programme (o\`{u} elle est un pr\'{e}-requis \`{a}
-%l'\'{e}limination de chemins infaisables) ou pour de la v\'{e}rification d\'{e}ductive
-%classique (pour laquelle m\^{e}me une construction automatis\'{e}e partielle
-%d'invariants peut faciliter de fa\c{c}on substantielle la t\^{a}che globale de preuve).
-%Dans les langages synchrones comme Lustre ou Scade (utilis\'{e}s \`{a} l'\'{e}chelle
-%industrielle dans le ferroviaire et l'avionique), ces
-%techniques sont cruciales pour une d\'{e}composition des programmes qui permet
-%le passage \`{a} l'\'{e}chelle d'autres techniques d'analyse statique.
-%
-%L'objectif de cette th\`{e}se est de d\'{e}velopper, pour un mod\`{e}le de langage
-%imp\'{e}ratif, typ\'{e} et bas\'{e} sur les monades (semblable \`{a} celui pr\'{e}sent\'{e} dans
-%\cite{DBLP:conf/pldi/GreenawayLAK14}), un ensemble de tactiques en
-%Isabelle/HOL pour construire des invariants qui serviront d'entr\'{e}e
-%\`{a} d'autres techniques d'analyse statique de programmes.
-%\`{A} partir d'une combinaison d'ex\'{e}cution symbolique, de recherche (heuristique)
-%d'abstraction de pr\'{e}dicats, de technologies de parall\'{e}lisation et
-%preuve SMT,
-%de nouvelles formes de g\'{e}n\'{e}ration d'invariants seront explor\'{e}es et impl\'{e}ment\'{e}es.
-%Dans le cas des langages synchrones, des avanc\'{e}es ont \'{e}t\'{e} obtenues r\'{e}cemment
-%gr\^{a}ce \`{a} l'outil SMT Kind2 \cite{kind2, kind2Web} de v\'{e}rification pour Lustre
-%et son successeur JKind \cite{jkind, jkindWeb} qui utilise des g\'{e}n\'{e}rateurs
-%d'invariants bas\'{e}s sur des heuristiques \cite{inv1, inv2} reli\'{e}es entre eux
-%par du code d\'{e}di\'{e}, ainsi que des d\'{e}monstrateurs g\'{e}n\'{e}raux
-%(Kind and PDR \cite{eng}). M\^{e}me si le fondement th\'{e}orique de ces outils est
-%parfois probl\'{e}matique, ce type de syst\`{e}mes a montr\'{e} l'int\'{e}r\^{e}t pratique de cette
-%approche. 
-%L'accent est mis en particulier sur les invariants qui \'{e}tablissent la faisabilit\'{e}
-%des chemins
-%d'ex\'{e}cution dans le code plut\^{o}t qu'une preuve compl\`{e}te de la
-%correction partielle du code. Ceci suffit pour de nombreuses
-%techniques d'analyse statique de programmes ainsi que pour les m\'{e}thodes
-%de g\'{e}n\'{e}ration de test structurel al\'{e}atoire \cite{aissat:hal-01655414,aissat:hal-01632902}.
-%
+En particulier, il permet de prouver de manière incrémentale des propriétés
+sur des environnements avec une grande variabilité
+et de vérifier la correction des processus par raffinement.
 
 \subsection*{Objectifs~:}
 \begin{itemize}
-\item Étude des modèles ``ouverts''  d'environnements
-         liés au domaine de l'Automobile Autonome, ainsi que des patrons
-         des système de contrôle de l'Automobile Autonome;
-\item Construction d'un environnement de simulation et de vérification à base de
-         processus HOL-CSP pour le domaine  de l'Automobile Autonome;
-\item Construction d'un environnement de simulation à base d'abstractions correctes 
-      des comportements en HOL-CSP;
-\item Intégration de l'environnement résultant avec le système d'ingénierie 
-      AltaRica ou similaire
+  \item
+    Étude des modèles \emph{open world} d'environnements liés
+    au domaine du Véhicule Autonome,
+    ainsi que des patrons des systèmes de contrôle du Véhicule Autonome ;
+\item
+  Construction d'un environnement de simulation et de vérification
+  à base de processus HOL-CSP pour le domaine du Véhicule Autonome ;
+\item
+  Construction d'un environnement de simulation
+  à base d'abstractions correctes des comportements en HOL-CSP ;
+\item
+  Intégration de l'environnement résultant
+  avec le système d'ingénierie AltaRica ou similaire.
 \end{itemize}
 
 \subsection*{Plan de Travail~:}
 \begin{itemize}
-\item Modélisation des patrons ``ouverts''  d'environnement de l'Automobile Autonome;
-\item Modélisation des patrons ``ouverts'' des système de contrôle dans l'Automobile Autonome
-\item Développement d'un système de transformation des processus CSP en Automates
-\item Développement d'un système de simulation des processus CSP et leur intégration dans un framework similaire à AltaRica
-\item Développement d'un dispositif d'abstraction des processus à partir des ontologies du domaine.
+  \item
+    Modélisation des patrons \emph{open world}
+    d'environnement du Véhicule Autonome ;
+  \item
+    Modélisation des patrons \emph{open world}
+    des systèmes de contrôle du Véhicule Autonome ;
+  \item
+    Développement d'un système de transformation
+    des processus CSP en Automates ;
+  \item
+    Développement d'un système de simulation des processus CSP
+    et leur intégration dans un framework similaire à AltaRica ;
+  \item
+    Développement d'un dispositif d'abstraction des processus
+    à partir des ontologies du domaine.
 \end{itemize}
 
-\subsection*{Cadre organisatoire~:}
-Encadrement dans le laboratoire de recherche en informatique (LRI) dans l'equipe VALS.
-Directeur Prof. B. Wolff (HDR), Co-encadrement: Dr. Safouan Taha.
-Financement de Thèse: SystemX suivant la convention. On note que l'équipe VALS va 
-être transféré dans le nouveau laboratoire LMF (également Université Paris-Saclay) 
-pendant la durée de la thèse;  on estime que ce transfer organisatoire n'aura aucun 
-impact sur le deroulement de la thèse et les engagements contractuels.
+\subsection*{Cadre d'organisation~:}
+Encadrement dans le laboratoire de recherche en informatique (LRI)
+dans l'équipe VALS\@.
+Directeur Prof.\ B. Wolff (HDR), Co-encadrement : Dr.\ Safouan Taha.
+Financement de Thèse: SystemX suivant la convention.
+On note que l'équipe VALS va être transférée
+dans le nouveau laboratoire LMF (également Université Paris-Saclay)
+pendant la durée de la thèse ;
+on estime que ce transfert de l'organisation n'aura aucun impact
+sur le déroulement de la thèse et les engagements contractuels.
 
 \bibliographystyle{unsrt}
 \bibliography{biblio}
